@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Daniel Domiciano | Tabalho 2 Bimestre</title>
+    <style>
+        body {
+            background-color: cornflowerblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        .box-nav {
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .box {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        input, button {
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            width: 50%;
+            margin: 5px 0;
+        }
+        button {
+            background-color: slateblue;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-nav">
+        <h1>EXERCÍCIO #02</h1>
+        <h2>Disciplina de Algoritmos</h2>
+    </div>
+    <div class="box">
+        <p>Digite um número de 1 a 7 para ver o dia da semana:</p>
+        <input type="number" id="numero" placeholder="Digite o número">
+        <br>
+        <button onclick="calcular()">Calcular</button>
+    </div>
+
+    <script>
+        function calcular() {
+            var numero = parseInt(document.getElementById("numero").value);
+            var mensagem = "";
+
+            if (numero === 1) {
+                mensagem = "Domingo";
+            } else if (numero === 2) {
+                mensagem = "Segunda-feira";
+            } else if (numero === 3) {
+                mensagem = "Terça-feira";
+            } else if (numero === 4) {
+                mensagem = "Quarta-feira";
+            } else if (numero === 5) {
+                mensagem = "Quinta-feira";
+            } else if (numero === 6) {
+                mensagem = "Sexta-feira";
+            } else if (numero === 7) {
+                mensagem = "Sábado";
+            } else {
+                mensagem = "Não existe dia da semana com esse número.";
+            }
+
+            alert(mensagem);
+            console.log(mensagem);
+        }
+    </script>
+</body>
+</html>

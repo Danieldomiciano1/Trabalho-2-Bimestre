@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Números 0-100</title>
+    <style>
+        body {
+            background-color: cornflowerblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 20px;
+        }
+        .box-nav {
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 500px;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            margin: 5px 0;
+            width: 80%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: slateblue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 15px 0;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-nav">
+        <h1>EXERCÍCIO #05</h1>
+        <h2>Contar números entre 0 e 100</h2>
+    </div>
+
+    <div class="box">
+        <p>Digite quantos números quiser (até 20):</p>
+        
+        <div class="input-group">
+            <!-- Inputs com nomes sequenciais -->
+            <input type="number" name="numero" placeholder="Número 1">
+            <input type="number" name="numero" placeholder="Número 2">
+            <input type="number" name="numero" placeholder="Número 3">
+            <input type="number" name="numero" placeholder="Número 4">
+            <input type="number" name="numero" placeholder="Número 5">
+            <input type="number" name="numero" placeholder="Número 6">
+            <input type="number" name="numero" placeholder="Número 7">
+            <input type="number" name="numero" placeholder="Número 8">
+            <input type="number" name="numero" placeholder="Número 9">
+            <input type="number" name="numero" placeholder="Número 10">
+            <input type="number" name="numero" placeholder="Número 11">
+            <input type="number" name="numero" placeholder="Número 12">
+            <input type="number" name="numero" placeholder="Número 13">
+            <input type="number" name="numero" placeholder="Número 14">
+            <input type="number" name="numero" placeholder="Número 15">
+            <input type="number" name="numero" placeholder="Número 16">
+            <input type="number" name="numero" placeholder="Número 17">
+            <input type="number" name="numero" placeholder="Número 18">
+            <input type="number" name="numero" placeholder="Número 19">
+            <input type="number" name="numero" placeholder="Número 20">
+        </div>
+        
+        <button onclick="calcular()">Calcular</button>
+        
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcular() {
+            // Pega todos os inputs com name="numero"
+            const inputs = document.getElementsByName("numero");
+            let total = 0;
+            let numerosValidos = [];
+            
+            // Verifica cada input
+            for (let i = 0; i < inputs.length; i++) {
+                const valor = parseFloat(inputs[i].value);
+                
+                // Ignora campos vazios
+                if (!isNaN(valor)) {
+                    if (valor >= 0 && valor <= 100) {
+                        total++;
+                        numerosValidos.push(valor);
+                    }
+                }
+            }
+            
+            // Mostra o resultado
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `
+                <strong>Resultado:</strong><br>
+                Números entre 0 e 100: <strong>${total}</strong><br>
+                ${numerosValidos.length > 0 ? 'Números válidos: ' + numerosValidos.join(', ') : 'Nenhum número válido digitado'}
+            `;
+        }
+    </script>
+</body>
+</html>

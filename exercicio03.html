@@ -1,0 +1,84 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Daniel Domiciano | Tabalho 2 Bimestre</title>
+        <style>
+            body {
+                background-color: cornflowerblue;
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+            }
+            .box-nav {
+                background-color: gold;
+                padding: 5px;
+                border-radius: 15px;
+            }
+            .box {
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                padding: 15px;
+                border-radius: 15px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            input, button {
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+                font-size: 16px;
+                width: 50%;
+                margin: 5px 0;
+            }
+            button {
+                background-color: slateblue;
+                color: white;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: darkblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-nav">
+            <h1>EXERCÍCIO #03</h1>
+            <h2>Disciplina de Algoritmos</h2>
+        </div>
+        <div class="box">
+            <p>Digite um número inteiro, para verificar se é impar ou par:</p>
+            <input type="number" id="numero" placeholder="Digite o número">
+            <br>
+            <button onclick="verificar()">Verificar</button>
+        </div>
+
+        <script>
+            function verificar() {
+                var numeroTexto = document.getElementById("numero").value;
+                var numero = parseInt(numeroTexto);
+
+                if (numeroTexto === "") {
+                    alert("Por favor, digite um número.");
+                    console.log("Nenhum número digitado.");
+                } else {
+                    if (isNaN(numero)) {
+                        alert("Valor inválido. Digite um número inteiro.");
+                        console.log("Valor inválido.");
+                    } else {
+                        var resto = numero % 2;
+
+                        if (resto === 0) {
+                            alert("O número é PAR.");
+                            console.log("O número " + numero + " é PAR.");
+                        } else {
+                            alert("O número é ÍMPAR.");
+                            console.log("O número " + numero + " é ÍMPAR.");
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+    </html>
