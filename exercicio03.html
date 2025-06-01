@@ -48,7 +48,7 @@
             <h2>Disciplina de Algoritmos</h2>
         </div>
         <div class="box">
-            <p>Digite um número inteiro, para verificar se é impar ou par:</p>
+            <p>Digite um número inteiro, para verificar se o mesmo é impar ou par:</p>
             <input type="number" id="numero" placeholder="Digite o número">
             <br>
             <button onclick="verificar()">Verificar</button>
@@ -61,20 +61,18 @@
 
                 if (numeroTexto === "") {
                     alert("Por favor, digite um número.");
-                    console.log("Nenhum número digitado.");
+                   
                 } else {
                     if (isNaN(numero)) {
                         alert("Valor inválido. Digite um número inteiro.");
-                        console.log("Valor inválido.");
+                
                     } else {
                         var resto = numero % 2;
 
                         if (resto === 0) {
-                            alert("O número é PAR.");
-                            console.log("O número " + numero + " é PAR.");
+                            alert("O número " + numero + " é PAR.");
                         } else {
-                            alert("O número é ÍMPAR.");
-                            console.log("O número " + numero + " é ÍMPAR.");
+                            alert("O número " + numero + " é ÍMPAR.");
                         }
                     }
                 }
@@ -82,3 +80,5 @@
         </script>
     </body>
     </html>
+                           
+                            

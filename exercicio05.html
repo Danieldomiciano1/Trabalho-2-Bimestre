@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Contador de Números 0-100</title>
+    <title>Exercício 05</title>
     <style>
         body {
             background-color: cornflowerblue;
@@ -23,36 +23,34 @@
             color: white;
             margin: 0 auto;
             width: 90%;
-            max-width: 500px;
+            max-width: 400px;
         }
-        .input-group {
-            margin: 10px 0;
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         input {
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            margin: 5px 0;
             width: 80%;
-            max-width: 300px;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            text-align: center;
+            font-size: 16px;
         }
         button {
+            margin-top: 20px;
             padding: 10px 20px;
             background-color: slateblue;
             color: white;
             border: none;
             border-radius: 10px;
+            font-size: 16px;
             cursor: pointer;
-            margin: 15px 0;
         }
         button:hover {
             background-color: darkblue;
-        }
-        #resultado {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
         }
     </style>
 </head>
@@ -63,64 +61,55 @@
     </div>
 
     <div class="box">
-        <p>Digite quantos números quiser (até 20):</p>
-        
-        <div class="input-group">
-            <!-- Inputs com nomes sequenciais -->
-            <input type="number" name="numero" placeholder="Número 1">
-            <input type="number" name="numero" placeholder="Número 2">
-            <input type="number" name="numero" placeholder="Número 3">
-            <input type="number" name="numero" placeholder="Número 4">
-            <input type="number" name="numero" placeholder="Número 5">
-            <input type="number" name="numero" placeholder="Número 6">
-            <input type="number" name="numero" placeholder="Número 7">
-            <input type="number" name="numero" placeholder="Número 8">
-            <input type="number" name="numero" placeholder="Número 9">
-            <input type="number" name="numero" placeholder="Número 10">
-            <input type="number" name="numero" placeholder="Número 11">
-            <input type="number" name="numero" placeholder="Número 12">
-            <input type="number" name="numero" placeholder="Número 13">
-            <input type="number" name="numero" placeholder="Número 14">
-            <input type="number" name="numero" placeholder="Número 15">
-            <input type="number" name="numero" placeholder="Número 16">
-            <input type="number" name="numero" placeholder="Número 17">
-            <input type="number" name="numero" placeholder="Número 18">
-            <input type="number" name="numero" placeholder="Número 19">
-            <input type="number" name="numero" placeholder="Número 20">
-        </div>
-        
+        <p>Digite de 1 a 20 números:</p>
+        <div id="input-container" class="inputs"></div>
         <button onclick="calcular()">Calcular</button>
-        
-        <div id="resultado"></div>
     </div>
 
     <script>
+        var container = document.getElementById("input-container");
+        var contador = 1;
+
+        while (contador <= 20) {
+            var input = document.createElement("input");
+            input.type = "number";
+            input.name = "numero";
+            input.placeholder = "Número " + contador;
+            container.appendChild(input);
+            contador = contador + 1;
+        }
+
         function calcular() {
-            // Pega todos os inputs com name="numero"
-            const inputs = document.getElementsByName("numero");
-            let total = 0;
-            let numerosValidos = [];
-            
-            // Verifica cada input
-            for (let i = 0; i < inputs.length; i++) {
-                const valor = parseFloat(inputs[i].value);
-                
-                // Ignora campos vazios
-                if (!isNaN(valor)) {
-                    if (valor >= 0 && valor <= 100) {
-                        total++;
-                        numerosValidos.push(valor);
+            var inputs = document.getElementsByName("numero");
+            var i = 0;
+            var total = 0;
+            var numerosValidos = [];
+
+            while (i < inputs.length) {
+                var texto = inputs[i].value;
+                var numero = parseFloat(texto);
+
+                if (texto !== "") {
+                    if (!isNaN(numero)) {
+                        if (numero >= 0 && numero <= 100) {
+                            total = total + 1;
+                            numerosValidos.push(numero);
+                        }
                     }
                 }
+
+                i = i + 1;
             }
-            
-            // Mostra o resultado
-            const resultado = document.getElementById("resultado");
-            resultado.innerHTML = `
-                <strong>Resultado:</strong><br>
-                Números entre 0 e 100: <strong>${total}</strong><br>
-                ${numerosValidos.length > 0 ? 'Números válidos: ' + numerosValidos.join(', ') : 'Nenhum número válido digitado'}
-            `;
+
+            if (total === 0) {
+                alert("Nenhum número entre 0 e 100 foi digitado.");
+                
+            } else {
+                var mensagem = "Foram digitados " + total + " número(s) entre 0 e 100.\n";
+                mensagem = mensagem + "Números válidos: " + numerosValidos.join(", ");
+                alert(mensagem);
+
+            }
         }
     </script>
 </body>
