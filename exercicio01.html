@@ -53,7 +53,7 @@
         <p>Digite seu peso e altura para calcular o IMC.</p>
         <input type="number" id="peso" placeholder="Peso em kg">
         <br>
-        <input type="number" id="altura" placeholder="Altura em metros Ex:1,80">
+        <input type="number" id="altura" placeholder="Altura em metros EX:1,80">
         <br><br>
         <button onclick="calcular()">Calcular</button>
     </div>
@@ -67,24 +67,23 @@
             var imc = peso / (altura * altura);
      
 
-            if (imc < 18.5) {
+            if (imc < 20) {
                 mensagem = "Abaixo do peso";
-            } else if (imc >= 18.5 && imc < 25) {
-                mensagem = "Peso ideal";
+            } else if (imc >= 20 && imc < 25) {
+                mensagem = "Peso normal";
             } else if (imc >= 25 && imc < 30) {
-                mensagem = "Levemente acima do peso";
-            } else if (imc >= 30 && imc < 35) {
-                mensagem = "Obesidade grau I";
-            } else if (imc >= 35 && imc < 40) {
-                mensagem = "Obesidade grau II";
-            } else {
-                mensagem = "Obesidade grau III";
+                mensagem = "Sobre peso";
+            } else if (imc >= 30 && imc < 40) {
+                mensagem = "Obeso";
+           } else {
+                mensagem = "Obeso Mórbido";
             }
 
             var resultado = "Seu IMC é: " + imc.toFixed(2) + " – " + mensagem;
             alert(resultado);
-     
+      
         }
     </script>
 </body>
 </html>
+
